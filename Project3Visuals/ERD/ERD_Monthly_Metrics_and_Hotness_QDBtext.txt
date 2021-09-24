@@ -1,0 +1,122 @@
+Monthly_by_State_metrics
+--
+yyyymm date
+state varchar(50)
+state_id varchar(2) fk >- States.state_id
+median_list_price int
+median_list_price_mm float
+median_list_price_yy float
+active_list_ct int
+active_list_ct_mm float
+active_list_ct_yy float
+median_days_market int
+median_days_market_mm float
+median_days_market_yy float
+new_listing_ct int
+new_listing_ct_mm float
+new_listing_ct_yy float
+price_increased_ct int
+price_increased_ct_mm float
+price_increased_ct_yy float
+price_reduced_ct int
+price_reduced_ct_mm float
+price_reduced_ct_yy float
+pending_list_ct int
+pending_list_ct_mm float
+pending_list_ct_yy float
+median_price_sqfoot float
+median_price_sqfoot_mm float
+median_price_sqfoot_yy float
+median_sqfeet float
+median_sqfeet_mm float
+median_sqfeet_yy float
+avg_list_price float
+avg_list_price_mm float
+avg_list_price_yy float
+total_list_ct int
+total_lsit_ct_mm float
+total)list_ct_yy float
+pending_ratio float
+pending_ratio_mm float
+pending_ratio_yy float
+rekey serial pk
+
+Hotness_county
+--
+yyyymm date
+fips int
+county_name varchar(50)
+state_id varchar(2) fk >- States.state_id
+cbsa_code int
+nielsen_hh_rank int
+hotness_rank int
+hotness_rank_mm float
+hotness_rank_yy float
+hotness_score float
+supply_score float
+demand_score float
+median_days_on_market float
+median_days_on_market_mm float
+median_dom_mm_day float
+median_days_on_market_yy float
+median_dom_yy_day float
+median_dom_vs_us float
+ldp_unique_viewers_per_property_mm float
+ldp_unique_viewers_per_property_yy float
+ldp_unique_viewers_per_property_vs_us float
+median_listing_price float
+median_listing_price_mm float
+median_listing_price_yy float
+median_listing_price_vs_us float
+quality_flag boolean
+recky serial pk
+
+
+Monthly_by_County_metrics
+--
+yyyymm date
+county_fips int
+county_name varchar(255)
+state_id varchar(2) fk >- States.state_id
+median_listing_price float
+median_listing_price_mm float
+median_listing_price_yy float
+active_listing_count float
+active_listing_count_mm float
+active_listing_count_yy float
+median_days_on_market float
+median_days_on_market_mm float
+median_days_on_market_yy float
+new_listing_count int
+new_listing_count_mm float
+new_listing_count_yy float
+price_increased_count int
+price_increased_count_mm float
+price_increased_count_yy float
+price_reduced_count int
+price_reduced_count_mm float
+price_reduced_count_yy float
+pending_listing_count int
+pending_listing_count_mm float
+pending_listing_count_yy float
+median_listing_price_per_square_foot float
+median_listing_price_per_square_foot_mm float
+median_listing_price_per_square_foot_yy float
+median_square_feet float
+median_square_feet_mm float
+median_square_feet_yy float
+average_listing_price float
+average_listing_price_mm float
+average_listing_price_yy float
+total_listing_count int
+total_listing_count_mm float
+total_listing_count_yy float
+pending_ratio float
+pending_ratio_mm float
+pending_ratio_yy float
+rekey serial pk
+
+
+States
+--
+state_id varchar(2) pk

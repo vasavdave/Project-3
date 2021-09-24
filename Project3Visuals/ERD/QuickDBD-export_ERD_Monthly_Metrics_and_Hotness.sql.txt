@@ -1,0 +1,146 @@
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+
+
+CREATE TABLE "Monthly_by_State_metrics" (
+    "yyyymm" date   NOT NULL,
+    "state" varchar(50)   NOT NULL,
+    "state_id" varchar(2)   NOT NULL,
+    "median_list_price" int   NOT NULL,
+    "median_list_price_mm" float   NOT NULL,
+    "median_list_price_yy" float   NOT NULL,
+    "active_list_ct" int   NOT NULL,
+    "active_list_ct_mm" float   NOT NULL,
+    "active_list_ct_yy" float   NOT NULL,
+    "median_days_market" int   NOT NULL,
+    "median_days_market_mm" float   NOT NULL,
+    "median_days_market_yy" float   NOT NULL,
+    "new_listing_ct" int   NOT NULL,
+    "new_listing_ct_mm" float   NOT NULL,
+    "new_listing_ct_yy" float   NOT NULL,
+    "price_increased_ct" int   NOT NULL,
+    "price_increased_ct_mm" float   NOT NULL,
+    "price_increased_ct_yy" float   NOT NULL,
+    "price_reduced_ct" int   NOT NULL,
+    "price_reduced_ct_mm" float   NOT NULL,
+    "price_reduced_ct_yy" float   NOT NULL,
+    "pending_list_ct" int   NOT NULL,
+    "pending_list_ct_mm" float   NOT NULL,
+    "pending_list_ct_yy" float   NOT NULL,
+    "median_price_sqfoot" float   NOT NULL,
+    "median_price_sqfoot_mm" float   NOT NULL,
+    "median_price_sqfoot_yy" float   NOT NULL,
+    "median_sqfeet" float   NOT NULL,
+    "median_sqfeet_mm" float   NOT NULL,
+    "median_sqfeet_yy" float   NOT NULL,
+    "avg_list_price" float   NOT NULL,
+    "avg_list_price_mm" float   NOT NULL,
+    "avg_list_price_yy" float   NOT NULL,
+    "total_list_ct" int   NOT NULL,
+    "total_lsit_ct_mm" float   NOT NULL,
+    "total)list_ct_yy" float   NOT NULL,
+    "pending_ratio" float   NOT NULL,
+    "pending_ratio_mm" float   NOT NULL,
+    "pending_ratio_yy" float   NOT NULL,
+    "rekey" serial   NOT NULL,
+    CONSTRAINT "pk_Monthly_by_State_metrics" PRIMARY KEY (
+        "rekey"
+     )
+);
+
+CREATE TABLE "Hotness_county" (
+    "yyyymm" date   NOT NULL,
+    "fips" int   NOT NULL,
+    "county_name" varchar(50)   NOT NULL,
+    "state_id" varchar(2)   NOT NULL,
+    "cbsa_code" int   NOT NULL,
+    "nielsen_hh_rank" int   NOT NULL,
+    "hotness_rank" int   NOT NULL,
+    "hotness_rank_mm" float   NOT NULL,
+    "hotness_rank_yy" float   NOT NULL,
+    "hotness_score" float   NOT NULL,
+    "supply_score" float   NOT NULL,
+    "demand_score" float   NOT NULL,
+    "median_days_on_market" float   NOT NULL,
+    "median_days_on_market_mm" float   NOT NULL,
+    "median_dom_mm_day" float   NOT NULL,
+    "median_days_on_market_yy" float   NOT NULL,
+    "median_dom_yy_day" float   NOT NULL,
+    "median_dom_vs_us" float   NOT NULL,
+    "ldp_unique_viewers_per_property_mm" float   NOT NULL,
+    "ldp_unique_viewers_per_property_yy" float   NOT NULL,
+    "ldp_unique_viewers_per_property_vs_us" float   NOT NULL,
+    "median_listing_price" float   NOT NULL,
+    "median_listing_price_mm" float   NOT NULL,
+    "median_listing_price_yy" float   NOT NULL,
+    "median_listing_price_vs_us" float   NOT NULL,
+    "quality_flag" boolean   NOT NULL,
+    "recky" serial   NOT NULL,
+    CONSTRAINT "pk_Hotness_county" PRIMARY KEY (
+        "recky"
+     )
+);
+
+CREATE TABLE "Monthly_by_County_metrics" (
+    "yyyymm" date   NOT NULL,
+    "county_fips" int   NOT NULL,
+    "county_name" varchar(255)   NOT NULL,
+    "state_id" varchar(2)   NOT NULL,
+    "median_listing_price" float   NOT NULL,
+    "median_listing_price_mm" float   NOT NULL,
+    "median_listing_price_yy" float   NOT NULL,
+    "active_listing_count" float   NOT NULL,
+    "active_listing_count_mm" float   NOT NULL,
+    "active_listing_count_yy" float   NOT NULL,
+    "median_days_on_market" float   NOT NULL,
+    "median_days_on_market_mm" float   NOT NULL,
+    "median_days_on_market_yy" float   NOT NULL,
+    "new_listing_count" int   NOT NULL,
+    "new_listing_count_mm" float   NOT NULL,
+    "new_listing_count_yy" float   NOT NULL,
+    "price_increased_count" int   NOT NULL,
+    "price_increased_count_mm" float   NOT NULL,
+    "price_increased_count_yy" float   NOT NULL,
+    "price_reduced_count" int   NOT NULL,
+    "price_reduced_count_mm" float   NOT NULL,
+    "price_reduced_count_yy" float   NOT NULL,
+    "pending_listing_count" int   NOT NULL,
+    "pending_listing_count_mm" float   NOT NULL,
+    "pending_listing_count_yy" float   NOT NULL,
+    "median_listing_price_per_square_foot" float   NOT NULL,
+    "median_listing_price_per_square_foot_mm" float   NOT NULL,
+    "median_listing_price_per_square_foot_yy" float   NOT NULL,
+    "median_square_feet" float   NOT NULL,
+    "median_square_feet_mm" float   NOT NULL,
+    "median_square_feet_yy" float   NOT NULL,
+    "average_listing_price" float   NOT NULL,
+    "average_listing_price_mm" float   NOT NULL,
+    "average_listing_price_yy" float   NOT NULL,
+    "total_listing_count" int   NOT NULL,
+    "total_listing_count_mm" float   NOT NULL,
+    "total_listing_count_yy" float   NOT NULL,
+    "pending_ratio" float   NOT NULL,
+    "pending_ratio_mm" float   NOT NULL,
+    "pending_ratio_yy" float   NOT NULL,
+    "rekey" serial   NOT NULL,
+    CONSTRAINT "pk_Monthly_by_County_metrics" PRIMARY KEY (
+        "rekey"
+     )
+);
+
+CREATE TABLE "States" (
+    "state_id" varchar(2)   NOT NULL,
+    CONSTRAINT "pk_States" PRIMARY KEY (
+        "state_id"
+     )
+);
+
+ALTER TABLE "Monthly_by_State_metrics" ADD CONSTRAINT "fk_Monthly_by_State_metrics_state_id" FOREIGN KEY("state_id")
+REFERENCES "States" ("state_id");
+
+ALTER TABLE "Hotness_county" ADD CONSTRAINT "fk_Hotness_county_state_id" FOREIGN KEY("state_id")
+REFERENCES "States" ("state_id");
+
+ALTER TABLE "Monthly_by_County_metrics" ADD CONSTRAINT "fk_Monthly_by_County_metrics_state_id" FOREIGN KEY("state_id")
+REFERENCES "States" ("state_id");
+
